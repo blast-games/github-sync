@@ -1,0 +1,4 @@
+name: "GithubSync"
+api: [4.0.0, 5.0.0]
+version: "0.1"
+main: githubsync\Loader
