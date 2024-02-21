@@ -19,8 +19,7 @@ final class Loader extends PluginBase {
 
 	protected function onEnable(): void {
 		if (Utils::getOS() !== Utils::OS_LINUX) {
-			$this->getLogger()->warning("O plugin não pode ser executado em sistemas linux.");
-			$this->getServer()->getPluginManager()->disablePlugin($this);
+			$this->getLogger()->warning("O plugin só pode ser executado em sistemas linux.");
 			return;
 		}
 		$this->getServer()->getCommandMap()->register("github", new command\GithubCommand($this));

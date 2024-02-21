@@ -27,7 +27,7 @@ final class GithubCommand extends Command {
 	}
 
 	public function execute(CommandSender $sender, string $commandLabel, array $args) {
-		if ($sender instanceof Player) {
+		if ($sender instanceof Player && !$this->testPermission($sender)) {
 			return;
 		}
 		if (!isset($args[0])) {
@@ -80,7 +80,7 @@ final class GithubCommand extends Command {
 
 				$sender->sendMessage(self::PREFIX . "O repositório foi definido para §f{$repository}§7 na ramificação §f{$branch}§7.");
 
-                $this->plugin->resync(true);
+				$this->plugin->resync(true);
 				break;
 			case "status":
 				$dirty = false;
